@@ -1,16 +1,20 @@
-import Home from './Home'
-import Projects from './Projects'
-import About from './About'
+import React from 'react';
+import Home from './Home';
+import Projects from './Projects';
+import About from './About';
+import Contact from './Contact';
+import NavBar from '../components/NavBar';
 
 const Goku = () => {
   return (
     <div className="relative overflow-x-hidden">
+      {/* Fixed Transparent Navigation Bar */}
+      <NavBar />
 
       <Home />
 
       <div className="relative z-10 font-heading">
-
-        <div className="min-h-screen p-6 flex flex-col items-center justify-center text-white gap-4 text-center">
+        <div className="min-h-screen p-6 flex flex-col items-center justify-center text-white gap-4 text-center" id="home">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl">
             EAT.<span className="text-customOrange">CODE</span>.SLEEP
           </h1>
@@ -22,11 +26,12 @@ const Goku = () => {
           </p>
         </div>
 
-        <Projects />
-        <About />
+        <Projects id="projects" />
+        <About id="about" />
+        <Contact id="contact" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Goku
+export default Goku;

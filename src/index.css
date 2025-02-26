@@ -140,3 +140,7 @@
 .animate-roam {
   animation: roam 15s linear infinite;
 }
+
+html {
+  scroll-behavior: smooth;
+}

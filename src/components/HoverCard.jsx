@@ -1,3 +1,4 @@
+import React from 'react';
 import DesktopImageCycle from './ImageCycle'; // Ensure this component is implemented
 
 const HoverCard = ({
@@ -9,11 +10,10 @@ const HoverCard = ({
   onClick,
   className = ''
 }) => {
-  console.log('tile',title)
   return (
     <>
-      {/* Mobile Version: Unchanged */}
-      <div className={`relative group w-full md:hidden h-96 overflow-hidden ${className}`}>
+      {/* Mobile Version: Updated to always center content */}
+      <div className={`relative group w-full md:hidden min-h-[70vh] overflow-hidden ${className}`}>
         {/* Default Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
@@ -31,11 +31,13 @@ const HoverCard = ({
           <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
         {/* Content: Title, Description and Button */}
-        <div className="relative z-10 p-4 flex flex-col items-center justify-center h-full">
-            <h1 className="text-xl md:text-2xl text-white mb-2 text-center">
-              {title}
-            </h1>
-          <p className="text-white hidden sm:block md:block mb-4 text-center">{description}</p>
+        <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4">
+          <h1 className="text-xl md:text-2xl text-white mb-2 text-center">
+            {title}
+          </h1>
+          <p className="text-white hidden sm:block md:block mb-4 text-center">
+            {description}
+          </p>
           <a>
             <button
               className="w-auto px-4 py-2 bg-customOrange text-white rounded transition-colors duration-300 hover:bg-white hover:text-black"
@@ -60,11 +62,11 @@ const HoverCard = ({
 
         {/* Right Side: Title, Description and Button */}
         <div className="w-1/2 flex flex-col justify-between p-16 bg-transparent">
-        <div className='flex flex-col'>
+          <div className="flex flex-col">
             <h1 className="text-2xl md:text-4xl font-heading text-white mb-4">
               {title}
             </h1>
-          <p className="text-white font-heading mb-4">{description}</p>
+            <p className="text-white font-heading mb-4">{description}</p>
           </div>
           <a>
             <button
@@ -74,7 +76,6 @@ const HoverCard = ({
               {buttonText}
             </button>
           </a>
-          
         </div>
       </div>
     </>

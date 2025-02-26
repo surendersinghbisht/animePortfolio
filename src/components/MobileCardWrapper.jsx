@@ -1,4 +1,3 @@
-import React from 'react';
 import useInView from './InView'; // adjust the path as needed
 
 const MobileCardWrapper = ({ children }) => {

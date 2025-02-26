@@ -10,6 +10,10 @@ const Projects = () => {
   const desktopScrollRef = useRef(null);
   const mobileScrollRef = useRef(null);
 
+  // State to track if we're at the start or end of desktop scroll
+  const [isAtStart, setIsAtStart] = useState(true);
+  const [isAtEnd, setIsAtEnd] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (containerRef.current) {
@@ -40,12 +44,33 @@ const Projects = () => {
     }
   };
 
+  useEffect(() => {
+    const handleDesktopScroll = () => {
+      if (desktopScrollRef.current) {
+        const { scrollLeft, offsetWidth, scrollWidth } = desktopScrollRef.current;
+        setIsAtStart(scrollLeft <= 0);
+        setIsAtEnd(scrollLeft + offsetWidth >= scrollWidth - 1);
+      }
+    };
+    if (desktopScrollRef.current) {
+      desktopScrollRef.current.addEventListener('scroll', handleDesktopScroll);
+      // Call once to initialize
+      handleDesktopScroll();
+    }
+    return () => {
+      if (desktopScrollRef.current) {
+        desktopScrollRef.current.removeEventListener('scroll', handleDesktopScroll);
+      }
+    };
+  }, []);
+
   const navigateToDetailsPage = (id) => {
     window.open(`/details/${id}`, '_blank');
   };
 
   return (
     <div
+    id='projects'
       ref={containerRef}
       className="w-full p-10 min-h-screen"
       style={{ background: "linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.75), black)" }}
@@ -58,7 +83,7 @@ const Projects = () => {
           RECENT PROJECTS
         </h1>
         <p className="text-white text-start sm:pr-40 mt-4">
-        &quot;Here are some of my recent projects, reflecting my expertise and approach to problem-solving. Take a look at the work that demonstrates what I can do!&quot;
+          &quot;Here are some of my recent projects, reflecting my expertise and approach to problem-solving. Take a look at the work that demonstrates what I can do!&quot;
         </p>
       </div>
 
@@ -81,7 +106,6 @@ const Projects = () => {
             </MobileCardWrapper>
           ))}
         </div>
-        {/* Optionally, add an animated scroller indicator for mobile */}
       </div>
 
       {/* Desktop View: Side-by-side Layout with Navigation Buttons */}
@@ -103,14 +127,20 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        <FaAnglesLeft
-          onClick={handlePrev}
-          className="absolute hidden md:block left-0 top-1/2 text-customOrange text-2xl mr-2 z-10 transform translate-x-2 hover:translate-x-0 transition-transform"
-        />
-        <FaAnglesRight
-          onClick={handleNext}
-          className="absolute hidden md:block right-0 top-1/2 text-customOrange text-2xl z-10 transform -translate-x-2 hover:translate-x-0 transition-transform"
-        />
+        {/* Conditionally render Prev button */}
+        {!isAtStart && (
+          <FaAnglesLeft
+            onClick={handlePrev}
+            className="absolute left-0 top-1/2 text-customOrange text-2xl mr-2 z-10 transform translate-x-2 hover:translate-x-0 transition-transform"
+          />
+        )}
+        {/* Conditionally render Next button */}
+        {!isAtEnd && (
+          <FaAnglesRight
+            onClick={handleNext}
+            className="absolute right-0 top-1/2 text-customOrange text-2xl z-10 transform -translate-x-2 hover:translate-x-0 transition-transform"
+          />
+        )}
       </div>
     </div>
   );

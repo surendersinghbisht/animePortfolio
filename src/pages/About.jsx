@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import DraggableGif from '../components/DraggableGif';
 
 const About = () => {
   const sectionRef = useRef(null);
@@ -7,7 +8,7 @@ const About = () => {
   useEffect(() => {
     const observerOptions = { threshold: 0.3 };
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => setIsVisible(entry.isIntersecting));
+      entries.forEach(entry => setIsVisible(entry.isIntersecting));
     }, observerOptions);
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -15,11 +16,11 @@ const About = () => {
   }, []);
 
   return (
-    <div
+    <div id='about'
       ref={sectionRef}
       className="min-h-screen bg-customOrange flex flex-col font-heading items-center justify-center p-8 overflow-hidden relative"
     >
-      {/* New About Section Background Video */}
+      {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
@@ -35,7 +36,15 @@ const About = () => {
       {/* Tinted Overlay for Contrast */}
       <div className="absolute inset-0 bg-customOrange opacity-60"></div>
 
-      {/* Floating Decorative Dots */}
+      {/* Draggable GIF (no auto-roam, just draggable) */}
+      <DraggableGif
+        src="/images/nimbus.gif"
+        alt="Decorative GIF"
+        containerRef={sectionRef}
+        initialPosition={{ top: 10, left: 80 }}
+      />
+
+      {/* (Optional) Other decorative elements (dots, bounce) can remain here */}
       <div className="absolute top-10 left-10">
         <div
           className={`w-3 h-3 bg-white rounded-full mb-2 animate-float transition-all duration-500 ${
@@ -48,34 +57,11 @@ const About = () => {
           }`}
         ></div>
       </div>
-
-      {/* Bouncing Circle (Bounce Dot Animation) */}
       <div
         className={`absolute top-1/2 left-10 w-8 h-8 bg-white opacity-50 rounded-full transition-all duration-700 ${
           isVisible ? 'animate-bounce opacity-100' : 'opacity-0'
         }`}
       ></div>
-
-      {/* Decorative Roaming GIF */}
-      <img
-        src="/images/nimbus.gif"
-        alt="Decorative"
-        className="absolute z-30 w-32 h-auto animate-roam"
-      />
-
-      {/* Confetti-like Falling Lines */}
-      <div className={`absolute inset-0 flex flex-col justify-between ${isVisible ? 'animate-fadeInConfetti' : ''}`}>
-        <div className="flex justify-around">
-          <span className="w-1 h-4 bg-white"></span>
-          <span className="w-1 h-6 bg-white"></span>
-          <span className="w-1 h-5 bg-white"></span>
-        </div>
-        <div className="flex justify-around">
-          <span className="w-1 h-5 bg-white"></span>
-          <span className="w-1 h-4 bg-white"></span>
-          <span className="w-1 h-6 bg-white"></span>
-        </div>
-      </div>
 
       {/* Main Content */}
       <div className="max-w-3xl text-center relative z-40">
@@ -101,13 +87,13 @@ const About = () => {
           }`}
         >
           <a
-            href="#projects"
+            href="#contact"
             className="px-6 py-3 bg-black text-white rounded-full transition-transform transform hover:scale-110 hover:bg-white hover:text-black"
           >
             Contact Me
           </a>
           <a
-            href="#contact"
+            href="#projects"
             className="group relative inline-flex items-center justify-center px-6 py-3 border border-black text-black rounded-full overflow-hidden transition-all duration-300 transform hover:translate-x-2 hover:bg-white"
           >
             <span
