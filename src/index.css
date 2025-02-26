@@ -1,0 +1,142 @@
+/* src/index.css */
+
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Noto+Sans:wght@100&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans:wght@100&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import '@fontsource/roboto';
+@import '@fontsource/open-sans';
+@import '@fontsource/lato';
+
+/* Rest of your Tailwind CSS imports and custom styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide scrollbar for Webkit browsers */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes dropLine {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Optional: If you're not using Tailwind's extend for animations, you can add utility classes: */
+.animate-dropLine {
+  animation: dropLine 1s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+@keyframes slideInRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+.animate-slideOutLeft {
+  animation: slideOutLeft 0.5s ease-out forwards;
+}
+.animate-slideInRight {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+.animate-slideOutRight {
+  animation: slideOutRight 0.5s ease-out forwards;
+}
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
+/* Tailwind already provides animate-bounce if enabled */
+
+@keyframes roam {
+  0% {
+    top: 10%;
+    left: 80%;
+  }
+  25% {
+    top: 20%;
+    left: 20%;
+  }
+  50% {
+    top: 70%;
+    left: 30%;
+  }
+  75% {
+    top: 50%;
+    left: 80%;
+  }
+  100% {
+    top: 10%;
+    left: 80%;
+  }
+}
+
+.animate-roam {
+  animation: roam 15s linear infinite;
+}
