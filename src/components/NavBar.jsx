@@ -12,19 +12,18 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="fixed font-heading top-0 left-0 right-0 z-50 bg-transparent">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent font-heading">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo Image */}
-          <img
-            src="/images/pngwing.com.png" // Path to your image in the public folder
-            alt="Logo"
-            className="h-8 bg-transparent md:h-10" // Adjust height based on your preference
-          />
-
+        {/* Logo */}
+        <img
+          src="/images/pngwing.com.png"
+          alt="Logo"
+          className="h-8 md:h-10"
+        />
 
         {/* Desktop Navigation */}
-        <div className=" hidden md:flex space-x-20">
-          {navLinks.map((link) => (
+        <div className="hidden md:flex space-x-20">
+          {navLinks.map(link => (
             <a
               key={link.to}
               href={`#${link.to}`}
@@ -37,7 +36,10 @@ const NavBar = () => {
 
         {/* Mobile Hamburger Icon */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(true)} className="text-white focus:outline-none">
+          <button 
+            onClick={() => setIsOpen(true)} 
+            className="text-white focus:outline-none"
+          >
             <FaBars size={24} />
           </button>
         </div>
@@ -45,9 +47,7 @@ const NavBar = () => {
 
       {/* Mobile Navigation Slider */}
       <div
-        className={`fixed inset-0 z-50 bg-black transform transition-transform duration-500 ease-in-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed inset-0 z-50 bg-black transform transition-transform duration-500 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="flex flex-col items-center justify-center h-full">
           <button
@@ -57,12 +57,12 @@ const NavBar = () => {
             <FaTimes size={28} />
           </button>
           <ul className="space-y-8">
-            {navLinks.map((link) => (
+            {navLinks.map(link => (
               <li key={link.to}>
                 <a
                   href={`#${link.to}`}
                   onClick={() => setIsOpen(false)}
-                  className="text-customOrange text-3xl md:text-4xl font-bold"
+                  className="text-customOrange text-3xl md:text-4xl font-bold hover:text-white transition-colors"
                 >
                   {link.name}
                 </a>

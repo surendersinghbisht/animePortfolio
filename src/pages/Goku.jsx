@@ -5,14 +5,11 @@ import About from './About';
 import Contact from './Contact';
 import NavBar from '../components/NavBar';
 
-const Goku = () => {
+const Goku = ({ onVideoLoaded }) => {
   return (
-    <div className="relative overflow-x-hidden">
-      {/* Fixed Transparent Navigation Bar */}
+    <div id='home' className="relative overflow-x-hidden">
       <NavBar />
-
-      <Home />
-
+      <Home onVideoLoaded={onVideoLoaded} />
       <div className="relative z-10 font-heading">
         <div className="min-h-screen p-6 flex flex-col items-center justify-center text-white gap-4 text-center" id="home">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl">
@@ -25,7 +22,6 @@ const Goku = () => {
             A code-crafting problem solver, passionate about building intuitive software experiences with clean code and cutting-edge technologies.
           </p>
         </div>
-
         <Projects id="projects" />
         <About id="about" />
         <Contact id="contact" />
