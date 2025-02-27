@@ -8,6 +8,7 @@ const ProjectDetailPage = () => {
  
   const projectData = ProjectDetails
 
+
   const data = projectData.find(project => project.id === +id)
 
   return (

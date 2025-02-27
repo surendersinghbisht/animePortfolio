@@ -14,7 +14,7 @@ const ProjectDetailsComp = ({ title, description, tools, image, githubLink, live
   };
 
   return (
-    <div className="h-screen font-heading p-8 bg-black text-white">
+    <div className="h-screen font-heading p-8 bg-black text-white overflow-y-auto">
       {/* Back Button */}
       <button
         onClick={handleBack}
