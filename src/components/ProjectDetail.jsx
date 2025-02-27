@@ -1,12 +1,12 @@
 const ProjectDetailsComp = ({ title, description, tools, image, githubLink, liveLink }) => {
   return (
-    <div className="max-w-4xl mx-auto p-8 bg-white rounded shadow-lg">
+    <div className=" h-screen font-heading p-8 bg-customOrange ">
       {/* Project Image */}
       {image && (
         <img
           src={image}
           alt={title}
-          className="w-full h-auto rounded mb-6 object-cover"
+          className="w-full h-1/2 rounded mb-6 object-cover"
         />
       )}
       
@@ -14,7 +14,7 @@ const ProjectDetailsComp = ({ title, description, tools, image, githubLink, live
       <h1 className="text-4xl font-bold mb-4">{title}</h1>
       
       {/* Project Description */}
-      <p className="text-lg mb-6">{description}</p>
+      <p className="text-lg mb-6 font-semibold font-title">{description}</p>
       
       {/* Tools & Technologies */}
       <div className="mb-6">

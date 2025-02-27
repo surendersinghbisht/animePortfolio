@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
+import { HiMiniBars3BottomRight } from "react-icons/hi2"
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +41,7 @@ const NavBar = () => {
             onClick={() => setIsOpen(true)} 
             className="text-white focus:outline-none"
           >
-            <FaBars size={24} />
+            <HiMiniBars3BottomRight size={24} />
           </button>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Goku from './pages/Goku';
 import ProjectDetailPage from './pages/ProjectDetailPage';
 import LoadingPage from './pages/LoadingPage';
+import CustomCursor from './components/CustomCursor'
 
 const App = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -10,7 +11,7 @@ const App = () => {
   useEffect(() => {
     // Create a hidden video element to preload the video
     const video = document.createElement('video');
-    video.src = '/videos/goku.mp4'; // path to your Home video
+    video.src = '/videos/gokubackground.mp4'; // path to your Home video
     video.muted = true;
     video.playsInline = true;
     video.loop = true;
@@ -26,10 +27,13 @@ const App = () => {
   }
 
   return (
+    <>
+    <CustomCursor />
     <Routes>
       <Route path="/" element={<Goku />} />
       <Route path="/details/:id" element={<ProjectDetailPage />} />
     </Routes>
+    </>
   );
 };
 

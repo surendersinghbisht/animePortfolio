@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Home = ({ onVideoLoaded }) => {
+const Home = () => {
   return (
     <div className="fixed inset-0 z-0">
       <video
@@ -8,10 +8,9 @@ const Home = ({ onVideoLoaded }) => {
         loop
         muted
         playsInline
-        onLoadedData={onVideoLoaded}
         className="object-cover w-full h-full transition-opacity duration-500"
       >
-        <source src="/videos/goku.mp4" type="video/mp4" />
+        <source src="/videos/gokubackground.mp4" type="video/mp4" />
         {/* Fallback text if the video tag is not supported */}
         Your browser does not support the video tag.
       </video>

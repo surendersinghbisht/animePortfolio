@@ -3,9 +3,9 @@
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Noto+Sans:wght@100&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans:wght@100&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import '@fontsource/roboto';
+/* @import '@fontsource/roboto';
 @import '@fontsource/open-sans';
-@import '@fontsource/lato';
+@import '@fontsource/lato'; */
 
 
 /* Rest of your Tailwind CSS imports and custom styles */
@@ -146,7 +146,7 @@ html {
   scroll-behavior: smooth;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'Anton';
   src: url('/fonts/Anton.woff2') format('woff2'),
        url('/fonts/Anton.woff') format('woff');
@@ -162,4 +162,4 @@ html {
   font-weight: normal;
   font-style: normal;
   font-display: block;
-}
+} */
