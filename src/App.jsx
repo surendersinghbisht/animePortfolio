@@ -1,53 +1,35 @@
-import React, { Suspense, useState, useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import Goku from './pages/Goku';
-import CustomCursor from './components/CustomCursor';
 import ProjectDetailPage from './pages/ProjectDetailPage';
-import LoadingPage from './pages/LoadingPage'
+import LoadingPage from './pages/LoadingPage';
 
 const App = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const location = useLocation();
-
-  // Only show loader on the home route
-  const showLoader = !videoLoaded && location.pathname === "/";
-
-  const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
-    const handleLoad = () => {
-      setPageLoaded(true);
-    };
-
-    window.addEventListener('load', handleLoad);
-
-
-    if (document.readyState === 'complete') {
-      setPageLoaded(true);
-    }
-
-    return () => window.removeEventListener('load', handleLoad);
+    // Create a hidden video element to preload the video
+    const video = document.createElement('video');
+    video.src = '/videos/goku.mp4'; // path to your Home video
+    video.muted = true;
+    video.playsInline = true;
+    video.loop = true;
+    // When the video data is loaded, update state.
+    video.onloadeddata = () => setVideoLoaded(true);
+    // Start loading the video.
+    video.load();
   }, []);
 
-  if (!pageLoaded) {
+  // Until the video is loaded, render only the LoadingPage.
+  if (!videoLoaded) {
     return <LoadingPage />;
   }
-  return (
-    <Suspense>
-    <div className="relative">
-      <CustomCursor />
-      {showLoader && (
-        <div className="fixed inset-0 z-100 bg-customOrange flex items-center justify-center">
-          <img src="/images/loading.gif" alt="Loading..." className="w-48" />
-        </div>
-      )}
 
-      <Routes>
-        <Route path="/" element={<Goku onVideoLoaded={() => setVideoLoaded(true)} />} />
-        <Route path="/details/:id" element={<ProjectDetailPage />} />
-      </Routes>
-    </div>
-    </Suspense>
+  return (
+    <Routes>
+      <Route path="/" element={<Goku />} />
+      <Route path="/details/:id" element={<ProjectDetailPage />} />
+    </Routes>
   );
 };
 
