@@ -77,8 +77,8 @@ const Projects = () => {
     >
       <div className="p-6">
         <h1
-          className="text-3xl sm:text-4xl md:text-5xl font-heading transition-transform duration-0 ease-in-out text-customOrange"
-          style={{ transform: `translateX(${translateX}px)` }}
+          className="text-6xl  sm:text-9xl md:text-8xl font-heading transition-transform duration-0 ease-in-out text-customOrange"
+          style={{ transform: `translateX(${translateX}px)` , whiteSpace: 'nowrap' }}
         >
           RECENT PROJECTS
         </h1>
