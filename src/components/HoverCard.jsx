@@ -32,10 +32,11 @@ const HoverCard = ({
         </div>
         {/* Content: Title, Description and Button */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4">
-          <h1 className="text-xl md:text-2xl text-white mb-2 text-center">
-            {title}
-          </h1>
-          <p className="text-white text-xs font-title mb-4 text-center">
+        <h1 className="text-2xl font-heading md:text-2xl text-white mb-2 text-center animate-textShine">
+  {title}
+</h1>
+
+          <p className="text-white text-sm font-title mb-4 text-center">
             {description}
           </p>
           <a>
