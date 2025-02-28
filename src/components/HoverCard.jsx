@@ -12,30 +12,15 @@ const HoverCard = ({
 }) => {
   return (
     <>
-      {/* Mobile Version: Updated to always center content */}
+      {/* Mobile Version: Updated for a more realistic, transparent glass effect */}
       <div className={`relative group w-full md:hidden min-h-[70vh] overflow-hidden ${className}`}>
-        {/* Default Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-          style={{ backgroundImage: `url(${defaultImage})`, borderRadius: '0.5rem' }}
-        >
-          {/* Translucent overlay */}
-          <div className="absolute inset-0 bg-black opacity-80"></div>
-        </div>
-        {/* Hover Background Image: slides in from left */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-200 transform -translate-x-full group-hover:translate-x-0"
-          style={{ backgroundImage: `url(${hoverImage})` }}
-        >
-          {/* Translucent overlay */}
-          <div className="absolute inset-0 bg-black opacity-40"></div>
-        </div>
+        {/* Glass Effect Background */}
+        <div className="absolute inset-0 bg-[rgba(255,255,255,0.05)] backdrop-blur-sm border border-white/10"></div>
         {/* Content: Title, Description and Button */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4">
-        <h1 className="text-2xl font-heading md:text-2xl text-white mb-2 text-center animate-textShine">
-  {title}
-</h1>
-
+          <h1 className="text-2xl font-heading md:text-2xl text-white mb-2 text-center animate-textShine">
+            {title}
+          </h1>
           <p className="text-white text-sm font-title mb-4 text-center">
             {description}
           </p>

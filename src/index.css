@@ -176,13 +176,16 @@ html {
 .animate-textShine {
   background: linear-gradient(
     90deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.8) 50%,
-    rgba(255,255,255,0) 100%
+    rgba(250, 148, 39, 0) 0%,
+    rgba(250, 148, 39, 0.8) 50%,
+    rgba(250, 148, 39, 0) 100%
   );
+
   background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textShine 3s linear infinite;
 }
+
+
 
