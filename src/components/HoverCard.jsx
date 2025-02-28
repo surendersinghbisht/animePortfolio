@@ -35,7 +35,7 @@ const HoverCard = ({
           <h1 className="text-xl md:text-2xl text-white mb-2 text-center">
             {title}
           </h1>
-          <p className="text-white hidden sm:block md:block mb-4 text-center">
+          <p className="text-white text-xs font-title mb-4 text-center">
             {description}
           </p>
           <a>
