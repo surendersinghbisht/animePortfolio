@@ -16,9 +16,14 @@ const About = () => {
   }, []);
 
   return (
-    <div id='about'
+    <div className='bg-black h-screen'>
+    <div
+      id="about"
       ref={sectionRef}
       className="min-h-screen bg-customOrange flex flex-col font-heading items-center justify-center p-8 overflow-hidden relative"
+      style={{
+        clipPath: 'polygon(0% 10%, 100% 0%, 100% 90%, 0% 100%)', // Slant top and bottom edges
+      }}
     >
       {/* Background Video */}
       <video
@@ -106,6 +111,7 @@ const About = () => {
           </a>
         </div>
       </div>
+    </div>
     </div>
   );
 };
