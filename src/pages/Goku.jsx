@@ -48,8 +48,8 @@ const Goku = ({ onVideoLoaded }) => {
           >
             <span
               style={{
-                transform: `translateX(${scrollY * 0.1}px)`, // EAT moves to the right
-                transition: 'transform 0.3s ease-out',
+                transform: `translateX(${scrollY * 0.6}px)`, // EAT moves to the right
+                transition: 'transform 0.1s ease-out',
               }}
             >
               EAT
@@ -57,16 +57,16 @@ const Goku = ({ onVideoLoaded }) => {
             <span
               className="text-customOrange"
               style={{
-                transform: `translateX(${scrollY * -0.1}px)`, // CODE moves to the left
-                transition: 'transform 0.3s ease-out',
+                transform: `translateX(${scrollY * -0.6}px)`, // CODE moves to the left
+                transition: 'transform 0.1s ease-out',
               }}
             >
               CODE
             </span>
             <span
               style={{
-                transform: `translateX(${scrollY * 0.1}px)`, // SLEEP moves to the right
-                transition: 'transform 0.3s ease-out',
+                transform: `translateX(${scrollY * 0.6}px)`, // SLEEP moves to the right
+                transition: 'transform 0.1s ease-out',
               }}
             >
               SLEEP
