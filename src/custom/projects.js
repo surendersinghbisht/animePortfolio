@@ -35,9 +35,9 @@ export const ProjectList = [
 },
 {id:4,
     defaultImage:'/images/project5.webp',
-    hoverImage: '/images/showfinder.jpeg',
-    title: 'Show Finder App',
-    description:'As the name would suggest, it offers you to find the deatails of your favorite shows. I used redux and redux saga to build this project.',
+    hoverImage: '/images/multilayer.png',
+    title: 'Multilayer parallax scrolling',
+    description:'A multilayer parallax animation project focuses on creating a dynamic and immersive experience by using multiple layers of images or objects that move at different speeds and directions relative to the viewer.',
     buttonText,
     className: ''
 }

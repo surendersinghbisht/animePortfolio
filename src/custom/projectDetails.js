@@ -41,12 +41,12 @@
     },
     {
         id:4,
-        image: '/images/showfinder.jpeg',
+        image: '/images/multilayer.png',
         title: 'Show Finder App',
-        description: 'As the name would suggest, it offers you to find the deatails of your favorite shows. I used redux and redux saga to build this project.',
-        tools: ['React', 'Tailwind CSS', 'REDUX', 'REDUX SAGA'],
-        githubLink: 'https://github.com/surendersinghbisht/Show-finder-App',
-        liveLink: 'https://showsfinderapp.netlify.app/'
+        description: 'A multilayer parallax animation project focuses on creating a dynamic and immersive experience by using multiple layers of images or objects that move at different speeds and directions relative to the viewer.',
+        tools: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'ScrollTrigger'],
+        githubLink: 'https://github.com/surendersinghbisht/cityportfolio',
+        liveLink: 'https://surendersinghportfolio.netlify.app/'
 
     }
   ]
