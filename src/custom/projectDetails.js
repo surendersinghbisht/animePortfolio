@@ -42,9 +42,9 @@
     {
         id:4,
         image: '/images/multilayer.png',
-        title: 'Show Finder App',
+        title: 'Multilayer parallax scrolling',
         description: 'A multilayer parallax animation project focuses on creating a dynamic and immersive experience by using multiple layers of images or objects that move at different speeds and directions relative to the viewer.',
-        tools: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'ScrollTrigger'],
+        tools: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'ScrollTrigger', 'FIGMA'],
         githubLink: 'https://github.com/surendersinghbisht/cityportfolio',
         liveLink: 'https://surendersinghportfolio.netlify.app/'
 
