@@ -16,7 +16,7 @@
         description: 'The LinkedIn Clone is a full-stack web application that mimics LinkedIn’s core features. Users can create professional profiles, connect with others, post updates, and engage with content through likes and comments. The platform also supports profile visibility settings, skill endorsements, and search for professionals and companies, providing a complete networking and job-hunting experience.',
         tools: ['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Cloudinary', 'JWT'],
         githubLink: 'https://github.com/surendersinghbisht/linkdeIn-clone',
-        liveLink: 'https://awesome-project.live'
+        liveLink: 'https://linkdein-clone.onrender.com/'
 
     },
     {
