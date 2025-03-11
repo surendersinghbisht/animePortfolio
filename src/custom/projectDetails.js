@@ -25,8 +25,8 @@
         title: 'TYPO (AI Powered Code Reviewer)',
         description: 'An AI-powered code reviewer can automate much of the tedious process of reviewing code, providing developers with valuable insights and suggestions. It can also help identify potential issues and errors, making the codebase more maintainable and efficient.',
         tools: ['React', ' CSS', 'Node.js', 'Express', 'Google API'],
-        githubLink: 'https://github.com/yourusername/awesome-project',
-        liveLink: 'https://awesome-project.live'
+        githubLink: 'https://github.com/surendersinghbisht/code-reviewer',
+        liveLink: 'https://code-reviewer-rqqc.vercel.app/'
 
     },
     {
