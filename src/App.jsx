@@ -17,7 +17,10 @@ const App = () => {
       <CustomCursor />
       {showLoader && <LoadingPage />}
       <Routes>
-        <Route path="/" element={<Goku onVideoLoaded={() => setVideoLoaded(true)} />} />
+        <Route 
+          path="/" 
+          element={<Goku onVideoLoaded={() => setVideoLoaded(true)} />} 
+        />
         <Route path="/details/:id" element={<ProjectDetailPage />} />
       </Routes>
     </div>
