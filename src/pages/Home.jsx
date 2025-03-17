@@ -1,27 +1,17 @@
 import React, { useState } from 'react';
 
-const Home = ({ onVideoLoaded }) => {
+const Home = () => {
   const [loaded, setLoaded] = useState(false);
 
   return (
     <div className="fixed inset-0 z-0">
-      {/* Loading overlay: visible until the video is fully loaded */}
-      {!loaded && (
-        <div className="absolute inset-0 z-50 bg-customOrange flex items-center justify-center">
-          <img src="/images/loading.gif" alt="Loading..." className="w-48" />
-        </div>
-      )}
-
-      {/* Video element: initially hidden via opacity until loaded */}
+      {/* Video element: Initially hidden until loaded */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        onCanPlayThrough={() => {
-          setLoaded(true);
-          if (onVideoLoaded) onVideoLoaded();
-        }}
+        onCanPlayThrough={() => setLoaded(true)}
         className={`object-cover w-full h-full transition-opacity duration-500 ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}

@@ -5,28 +5,41 @@ import About from './About';
 import Contact from './Contact';
 import NavBar from '../components/NavBar';
 
-const Goku = ({ onVideoLoaded }) => {
+const Goku = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
-    // Event listener for scroll position
+    // Simulate loading time (adjust if needed)
+    const timeout = setTimeout(() => {
+      setLoading(false); // Hide loader after content loads
+    }, 2000);
+
+    // Scroll event listener
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
-
-    // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
 
-    // Clean up the event listener on component unmount
     return () => {
+      clearTimeout(timeout); // Cleanup timeout
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+  // Show loading screen until content is ready
+  if (loading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-customOrange z-50">
+        <img src="/images/loading.gif" alt="Loading..." className="w-48" />
+      </div>
+    );
+  }
+
   return (
     <div id="home" className="relative overflow-x-hidden">
       <NavBar />
-      <Home onVideoLoaded={onVideoLoaded} />
+      <Home />
       <div className="relative z-10">
         <div
           className="min-h-screen p-6 flex flex-col items-center justify-center text-white gap-4 text-center"
@@ -36,19 +49,17 @@ const Goku = ({ onVideoLoaded }) => {
           <h1
             className="hidden sm:block sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-heading"
             style={{
-              transform: `translateX(${scrollY * 0.2}px)`, // Move "EAT" to the right as you scroll down
+              transform: `translateX(${scrollY * 0.2}px)`,
               transition: 'transform 0.3s ease-out',
             }}
           >
             EAT.<span className="text-customOrange">CODE</span>.SLEEP
           </h1>
 
-          <h1
-            className="text-9xl flex flex-col space-y-3 sm:hidden sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-heading"
-          >
+          <h1 className="text-9xl flex flex-col space-y-3 sm:hidden sm:text-5xl md:text-6xl lg:text-7xl xl:text-9xl font-heading">
             <span
               style={{
-                transform: `translateX(${scrollY * 0.6}px)`, // EAT moves to the right
+                transform: `translateX(${scrollY * 0.6}px)`,
                 transition: 'transform 0.1s ease-out',
               }}
             >
@@ -57,7 +68,7 @@ const Goku = ({ onVideoLoaded }) => {
             <span
               className="text-customOrange"
               style={{
-                transform: `translateX(${scrollY * -0.6}px)`, // CODE moves to the left
+                transform: `translateX(${scrollY * -0.6}px)`,
                 transition: 'transform 0.1s ease-out',
               }}
             >
@@ -65,7 +76,7 @@ const Goku = ({ onVideoLoaded }) => {
             </span>
             <span
               style={{
-                transform: `translateX(${scrollY * 0.6}px)`, // SLEEP moves to the right
+                transform: `translateX(${scrollY * 0.6}px)`,
                 transition: 'transform 0.1s ease-out',
               }}
             >
