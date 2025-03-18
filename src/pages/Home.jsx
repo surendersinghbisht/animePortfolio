@@ -17,14 +17,26 @@ const Home = ({ onVideoLoaded }) => {
         loop
         muted
         playsInline
-        onLoadedData={() => setLoaded(true)} // Fires when enough data is loaded to play
+        preload="auto"
+        onLoadedData={() => setLoaded(true)}
         className={`object-cover w-full h-full transition-opacity duration-500 ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <source src="/videos/samurai.webm" type="video/mp4" />
+        {/* Use different sources based on media query */}
+        <source
+          src="/videos/samurai.webm"
+          type="video/webm"
+          media="(min-width: 768px)" // Desktop and larger devices
+        />
+        <source
+          src="/videos/mobilelow.mp4"
+          type="video/webm"
+          media="(max-width: 767px)" // Mobile and smaller devices
+        />
         Your browser does not support the video tag.
       </video>
+
       {/* Dark Overlay */}
       <div
         className={`absolute inset-0 bg-black/50 transition-opacity duration-500 ${
