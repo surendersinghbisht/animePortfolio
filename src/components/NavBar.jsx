@@ -13,11 +13,11 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent font-heading">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent font-custom">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <img
-          src="/images/pngwing.com.png"
+          src="/images/star.png"
           alt="Logo"
           className="h-8 md:h-10"
         />
@@ -28,7 +28,7 @@ const NavBar = () => {
             <a
               key={link.to}
               href={`#${link.to}`}
-              className="text-white hover:text-customOrange transition-colors"
+              className="text-white hover:text-customRed transition-colors"
             >
               {link.name}
             </a>
@@ -53,7 +53,7 @@ const NavBar = () => {
         <div className="flex flex-col items-center justify-center h-full">
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-4 text-customOrange focus:outline-none"
+            className="absolute top-4 right-4 text-customRed focus:outline-none"
           >
             <FaTimes size={28} />
           </button>
@@ -63,7 +63,7 @@ const NavBar = () => {
                 <a
                   href={`#${link.to}`}
                   onClick={() => setIsOpen(false)}
-                  className="text-customOrange text-3xl md:text-4xl font-bold hover:text-white transition-colors"
+                  className="text-customRed text-3xl md:text-4xl font-bold hover:text-white transition-colors"
                 >
                   {link.name}
                 </a>

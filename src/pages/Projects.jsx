@@ -72,17 +72,17 @@ const Projects = () => {
     <div
     id='projects'
       ref={containerRef}
-      className="w-full p-10 min-h-screen"
+      className="w-full p-10 min-h-screen font-custom"
       style={{ background: "linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.75), black)" }}
     >
       <div className="p-6">
         <h1
-          className="text-6xl  sm:text-9xl md:text-8xl font-heading transition-transform duration-0 ease-in-out text-customOrange"
+          className="text-6xl  sm:text-9xl md:text-8xl font-custom transition-transform duration-0 ease-in-out text-customRed"
           style={{ transform: `translateX(${translateX}px)` , whiteSpace: 'nowrap' }}
         >
           RECENT PROJECTS
         </h1>
-        <p className="text-white text-start sm:pr-40 mt-4">
+        <p className="text-white text-start sm:pr-40 mt-4 font-custom2">
           &quot;Here are some of my recent projects, reflecting my expertise and approach to problem-solving. Take a look at the work that demonstrates what I can do!&quot;
         </p>
       </div>
@@ -131,14 +131,14 @@ const Projects = () => {
         {!isAtStart && (
           <FaAnglesLeft
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 text-customOrange text-2xl mr-2 z-10 transform translate-x-2 hover:translate-x-0 transition-transform"
+            className="absolute left-0 top-1/2 text-customRed text-2xl mr-2 z-10 transform translate-x-2 hover:translate-x-0 transition-transform"
           />
         )}
         {/* Conditionally render Next button */}
         {!isAtEnd && (
           <FaAnglesRight
             onClick={handleNext}
-            className="absolute right-0 top-1/2 text-customOrange text-2xl z-10 transform -translate-x-2 hover:translate-x-0 transition-transform"
+            className="absolute right-0 top-1/2 text-customRed text-2xl z-10 transform -translate-x-2 hover:translate-x-0 transition-transform"
           />
         )}
       </div>

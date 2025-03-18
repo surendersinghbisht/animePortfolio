@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors:{
-customOrange: "#FA9427"
+customOrange: "#E92F3E",
+customRed: '#BC002D'
       },
       keyframes: {
         slideInLeft: {
@@ -51,8 +52,10 @@ customOrange: "#FA9427"
       },
     },
     fontFamily:{
-      title: ["Noto Sans", "serif"],
-      heading: ["Anton", "serif"],
+      title: ['CustomFont2', 'sans-serif'],
+      custom: ['CustomFont', 'sans-serif'],
+      custom2: ['CustomFont2', 'sans-serif'],
+      heading: ['CustomFont2', 'sans-serif'],
       sans: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
       // Custom font families for specific uses
       display: ["Open Sans", 'sans-serif'],

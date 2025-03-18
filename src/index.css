@@ -177,7 +177,7 @@ html {
   background: linear-gradient(
     90deg,
     rgba(250, 148, 39, 0) 0%,
-    rgba(250, 148, 39, 0.8) 50%,
+    rgba(233, 47, 62, 1) 50%,
     rgba(250, 148, 39, 0) 100%
   );
 
@@ -188,4 +188,21 @@ html {
 }
 
 
+
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/wolf.ttf') format('woff2'),
+       url('/fonts/wolf.ttf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'CustomFont2';
+  src: url('/fonts/custom2.otf') format('woff2'),
+       url('/fonts/custom2.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 

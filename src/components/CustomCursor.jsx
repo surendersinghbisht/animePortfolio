@@ -49,8 +49,8 @@ const CustomCursor = () => {
 
   return (
     <motion.div
-      className="pointer-events-none fixed z-[9999] rounded-full bg-customOrange opacity-80 shadow-lg"
-      style={{ x, y, width: 20, height: 20,boxShadow: '0 0 200px 100px rgba(250,148,39,0.8)' }}
+      className="pointer-events-none fixed z-[9999] rounded-full bg-customRed opacity-80 shadow-lg"
+      style={{ x, y, width: 20, height: 20,boxShadow: '0 0 200px 100px rgba(233, 47, 62, 1)' }}
       transition={{ type: 'tween', duration: 0 }}
     />
   );
