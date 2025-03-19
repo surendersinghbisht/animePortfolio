@@ -42,12 +42,12 @@ const About = () => {
         {/* <div className="absolute inset-0 bg-customRed opacity-60 z-10"></div> */}
 
         {/* Draggable GIF */}
-        <DraggableGif
+        {/* <DraggableGif
           src="/images/nimbus.gif"
           alt="Decorative GIF"
           containerRef={sectionRef}
           initialPosition={{ top: 10, left: 80 }}
-        />
+        /> */}
 
         {/* Decorative elements (dots, bounce) */}
         <div className="absolute top-10 left-10">
@@ -102,7 +102,7 @@ const About = () => {
               className="group relative inline-flex items-center justify-center px-6 py-3 border border-black text-black rounded-full overflow-hidden transition-all duration-300 transform hover:translate-x-2 hover:bg-white"
             >
               <span
-                className="absolute inset-0 bg-[url('/images/buttonbg.jpg')] bg-cover bg-center filter opacity-60 transition-opacity duration-300 group-hover:opacity-0"
+                className="absolute inset-0 bg-[url('/images/mask.webp')] bg-cover bg-center filter opacity-60 transition-opacity duration-300 group-hover:opacity-0"
                 aria-hidden="true"
               ></span>
               <span className="relative z-10 font-custom group-hover:text-black">
