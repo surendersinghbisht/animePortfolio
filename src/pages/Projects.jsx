@@ -82,7 +82,7 @@ const Projects = () => {
         >
           RECENT PROJECTS
         </h1>
-        <p className="text-white text-start sm:pr-40 mt-4 font-custom2">
+        <p className="text-white text-start sm:pr-40 mt-4 font-custom">
           &quot;Here are some of my recent projects, reflecting my expertise and approach to problem-solving. Take a look at the work that demonstrates what I can do!&quot;
         </p>
       </div>

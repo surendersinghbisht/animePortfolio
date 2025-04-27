@@ -41,12 +41,12 @@
     },
     {
         id:4,
-        image: '/images/multilayer.png',
-        title: 'Multilayer parallax scrolling',
-        description: 'A multilayer parallax animation project focuses on creating a dynamic and immersive experience by using multiple layers of images or objects that move at different speeds and directions relative to the viewer.',
-        tools: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'ScrollTrigger', 'FIGMA'],
-        githubLink: 'https://github.com/surendersinghbisht/cityportfolio',
-        liveLink: 'https://surendersinghportfolio.netlify.app/'
+        image: '/images/discord.png',
+        title: 'Discord-Clone',
+        description: 'Designed and built a real-time chat application inspired by Discord with support for user authentication, channel creation, and private/group messaging.',
+        tools: ['React', 'Express', 'TypeScript', 'Tailwind', 'Socket.io','JWT', 'Railway'],
+        githubLink: 'https://github.com/surendersinghbisht/discord-clone',
+        liveLink: 'https://discord-clone-nlv7.vercel.app/'
 
     }
   ]

@@ -34,10 +34,10 @@ export const ProjectList = [
     className: ''
 },
 {id:4,
-    defaultImage:'/images/project5.webp',
-    hoverImage: '/images/multilayer.png',
-    title: 'Multilayer parallax scrolling',
-    description:'A multilayer parallax animation project focuses on creating a dynamic and immersive experience by using multiple layers of images or objects that move at different speeds and directions relative to the viewer.',
+    defaultImage:'/images/discord.png',
+    hoverImage: '/images/discord.png',
+    title: 'Discord-Clone',
+    description:'Designed and built a real-time chat application inspired by Discord with support for user authentication, channel creation, and private/group messaging.',
     buttonText,
     className: ''
 }
