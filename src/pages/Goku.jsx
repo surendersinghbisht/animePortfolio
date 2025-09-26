@@ -4,6 +4,7 @@ import Projects from './Projects';
 import About from './About';
 import Contact from './Contact';
 import NavBar from '../components/NavBar';
+import Bot from '../Bot';
 
 const Goku = ({ onVideoLoaded }) => {
   const [scrollY, setScrollY] = useState(0);
@@ -72,6 +73,7 @@ const Goku = ({ onVideoLoaded }) => {
         <About />
         <Contact />
       </div>
+      <Bot />
     </div>
   );
 };

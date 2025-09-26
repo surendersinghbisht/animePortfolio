@@ -23,6 +23,7 @@ const App = () => {
         />
         <Route path="/details/:id" element={<ProjectDetailPage />} />
       </Routes>
+
     </div>
   );
 };
