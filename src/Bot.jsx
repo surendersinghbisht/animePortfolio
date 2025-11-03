@@ -43,7 +43,6 @@ const Bot = () => {
       const data = await res.json();
       const fullText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
 
-      // Append text character by character
       let currentText = '';
       for (let i = 0; i < fullText.length; i++) {
         currentText += fullText[i];
@@ -52,8 +51,9 @@ const Bot = () => {
           newMessages[botIndex] = { text: currentText, sender: 'bot' };
           return newMessages;
         });
-        await new Promise(r => setTimeout(r, 20)); // Adjust speed here
+        await new Promise(r => setTimeout(r, 20)); 
       }
+      
     } catch (err) {
       setMessages(prev => {
         const newMessages = [...prev];
