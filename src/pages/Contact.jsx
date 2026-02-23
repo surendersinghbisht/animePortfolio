@@ -70,7 +70,7 @@ const Contact = () => {
 
         {/* Resume */}
         <a
-          href="https://drive.google.com/file/d/1qXVNGFm_e5uDMyRDqCqWQwI_2hy28Z-L/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1q3Uhz2umnE9v78UAfS3wVzmd4HR0GuVH/view?usp=drivesdk"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 text-white hover:text-customRed transition-colors duration-300"
