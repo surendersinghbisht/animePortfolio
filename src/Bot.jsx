@@ -7,8 +7,10 @@ const Bot = () => {
   const [isChatVisible, setIsChatVisible] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const apiKey = "AIzaSyCKEk_xm9bhxIiJJby-G6IiDi0dNPtrsdc"; // Replace with your API key
-  const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+  // Prefer loading the key from an environment variable if available
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY || "YOUR_GEMINI_API_KEY_HERE";
+  const apiUrl =
+    'https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent';
 
   // Scroll to bottom when messages update
   useEffect(() => {
@@ -34,11 +36,20 @@ const Bot = () => {
 
       const res = await fetch(apiUrl, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-goog-api-key': apiKey,
+        },
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) throw new Error("API error");
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => null);
+        const message =
+          errorData?.error?.message ||
+          `Request failed with status ${res.status}`;
+        throw new Error(message);
+      }
 
       const data = await res.json();
       const fullText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
@@ -55,12 +66,14 @@ const Bot = () => {
       }
       
     } catch (err) {
+      const errorText =
+        err instanceof Error ? err.message : 'Unknown error occurred.';
       setMessages(prev => {
         const newMessages = [...prev];
-        newMessages[botIndex] = { text: "Error occurred.", sender: 'bot' };
+        newMessages[botIndex] = { text: `Error: ${errorText}`, sender: 'bot' };
         return newMessages;
       });
-      console.error(err);
+      console.error('Gemini API error:', err);
     } finally {
       setIsLoading(false);
     }
