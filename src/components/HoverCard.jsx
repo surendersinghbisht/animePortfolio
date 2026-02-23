@@ -37,13 +37,29 @@ const HoverCard = ({
 
       {/* Desktop Version: Side-by-side layout with animated image cycle */}
       <div className={`hidden md:flex w-full ${className}`}>
-        {/* Left Side: Automated Image Cycle */}
-        <div className="relative group w-1/2 h-96 overflow-hidden">
-          <DesktopImageCycle 
-            images={[hoverImage]} 
-            interval={3000} 
-            animationDuration={1000} 
-          />
+        {/* Left Side: Automated Image Cycle with styled frame */}
+        <div className="relative group w-1/2 h-96 overflow-hidden rounded-2xl">
+          {/* glowing frame */}
+          <div className="pointer-events-none absolute -inset-[2px] rounded-2xl border border-customRed/40 shadow-[0_0_45px_rgba(188,0,45,0.7)] opacity-80" />
+          {/* corner accents */}
+          <div className="pointer-events-none absolute inset-3 flex justify-between">
+            <span className="w-10 h-[2px] bg-customRed" />
+            <span className="w-10 h-[2px] bg-customRed" />
+          </div>
+          <div className="pointer-events-none absolute inset-3 flex justify-between items-end">
+            <span className="w-6 h-[2px] bg-white/70" />
+            <span className="w-6 h-[2px] bg-white/70" />
+          </div>
+          {/* cinematic gradient overlay */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-customRed/40 mix-blend-soft-light" />
+          {/* image cycle */}
+          <div className="relative w-full h-full">
+            <DesktopImageCycle
+              images={[hoverImage]}
+              interval={3000}
+              animationDuration={1000}
+            />
+          </div>
         </div>
 
         {/* Right Side: Title, Description and Button */}

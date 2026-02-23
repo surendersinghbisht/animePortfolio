@@ -9,6 +9,7 @@ const Projects = () => {
   const containerRef = useRef(null);
   const desktopScrollRef = useRef(null);
   const mobileScrollRef = useRef(null);
+  const [isTitleInView, setIsTitleInView] = useState(false);
 
   // State to track if we're at the start or end of desktop scroll
   const [isAtStart, setIsAtStart] = useState(true);
@@ -19,14 +20,33 @@ const Projects = () => {
       if (containerRef.current) {
         const containerTop = containerRef.current.offsetTop;
         const scrolled = window.scrollY - containerTop;
-        const offset = scrolled * 0.5;
+        const offset = scrolled * 0.4;
         setTranslateX(offset);
       }
     };
 
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === containerRef.current) {
+            setIsTitleInView(entry.isIntersecting);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   // Scroll functions for desktop navigation buttons
@@ -70,28 +90,45 @@ const Projects = () => {
 
   return (
     <div
-    id='projects'
+      id="projects"
       ref={containerRef}
-      className="w-full p-10 min-h-screen font-custom"
-      style={{ background: "linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.75), black)" }}
+      className="w-full min-h-screen font-custom px-4 sm:px-8 lg:px-16 py-16 relative overflow-hidden"
+      style={{ background: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.75), black)' }}
     >
-      <div className="p-6">
-        <h1
-          className="text-6xl  sm:text-9xl md:text-8xl font-custom transition-transform duration-0 ease-in-out text-customRed"
-          style={{ transform: `translateX(${translateX}px)` , whiteSpace: 'nowrap' }}
-        >
-          RECENT PROJECTS
-        </h1>
-        <p className="text-white text-start sm:pr-40 mt-4 font-custom">
-          &quot;Here are some of my recent projects, reflecting my expertise and approach to problem-solving. Take a look at the work that demonstrates what I can do!&quot;
-        </p>
+      <div className="relative max-w-6xl mx-auto">
+        <div className="flex flex-col gap-4">
+          <span className="inline-flex items-center gap-2 text-xs sm:text-sm tracking-[0.25em] uppercase text-gray-300">
+            <span className="h-px w-8 bg-customRed" />
+            Featured Work
+          </span>
+          <h1
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-custom text-customRed tracking-tight drop-shadow-lg transition-all duration-700 ease-out"
+            style={{
+              transform: `translateX(${translateX}px)`,
+              whiteSpace: 'nowrap',
+              opacity: isTitleInView ? 1 : 0,
+              letterSpacing: isTitleInView ? '0.05em' : '0.3em',
+            }}
+          >
+            RECENT PROJECTS
+          </h1>
+          <p className="text-sm sm:text-base md:text-lg text-gray-100 max-w-2xl">
+            &quot;A curated selection of work that blends clean code, performance, and anime-inspired aesthetics.&quot;
+          </p>
+        </div>
+
+        {/* scroll hint for desktop */}
+        <div className="hidden md:flex items-center gap-2 mt-8 text-xs tracking-[0.25em] uppercase text-gray-400">
+          <span className="h-px w-8 bg-gray-500" />
+          Scroll horizontally to explore
+        </div>
       </div>
 
       {/* Mobile View: Horizontal Carousel with active card effect */}
-      <div className="md:hidden relative">
+      <div className="md:hidden relative mt-10">
         <div
           ref={mobileScrollRef}
-          className="overflow-x-auto snap-x snap-mandatory flex gap-4 hide-scrollbar"
+          className="overflow-x-auto snap-x snap-mandatory flex gap-6 pb-4 hide-scrollbar"
         >
           {ProjectList.map((project, id) => (
             <MobileCardWrapper key={id}>
@@ -109,13 +146,16 @@ const Projects = () => {
       </div>
 
       {/* Desktop View: Side-by-side Layout with Navigation Buttons */}
-      <div className="hidden md:block relative">
+      <div className="hidden md:block relative mt-16">
         <div
           ref={desktopScrollRef}
-          className="overflow-x-auto snap-x snap-mandatory flex gap-4 hide-scrollbar"
+          className="overflow-x-auto snap-x snap-mandatory flex gap-8 pb-6 hide-scrollbar"
         >
           {ProjectList.map((project, id) => (
-            <div key={id} className="snap-center flex-shrink-0 w-full sm:p-10">
+            <div
+              key={id}
+              className="snap-center flex-shrink-0 w-full sm:p-10 lg:p-12 transition-transform duration-500 hover:-translate-y-4 hover:scale-[1.02] hover:rotate-[-0.5deg]"
+            >
               <HoverCard
                 title={project.title}
                 buttonText={project.buttonText}
