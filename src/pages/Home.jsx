@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Home = ({ onVideoLoaded }) => {
   const [loaded, setLoaded] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     if (loaded && onVideoLoaded) {
@@ -9,16 +10,27 @@ const Home = ({ onVideoLoaded }) => {
     }
   }, [loaded, onVideoLoaded]);
 
+  const handleVideoLoadedData = () => {
+    setLoaded(true);
+  };
+
+  const handleVideoCanPlayThrough = () => {
+    // Ensure video is fully buffered
+    setLoaded(true);
+  };
+
   return (
     <div className="fixed inset-0 z-0">
       {/* Background Video */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
         preload="auto"
-        onLoadedData={() => setLoaded(true)}
+        onLoadedData={handleVideoLoadedData}
+        onCanPlayThrough={handleVideoCanPlayThrough}
         className={`object-cover w-full h-full transition-opacity duration-500 ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
@@ -31,7 +43,7 @@ const Home = ({ onVideoLoaded }) => {
         />
         <source
           src="/videos/mobilelow.mp4"
-          type="video/webm"
+          type="video/mp4"
           media="(max-width: 767px)" // Mobile and smaller devices
         />
         Your browser does not support the video tag.
